@@ -21,7 +21,9 @@ end
 def selects_most_prominent_color_and_returns_with_count
   "SELECT color, COUNT(color) AS bear_color_count 
   FROM bears 
-  ORDER BY color"
+  GROUP BY color
+  ORDER BY bear_color_count
+  DESC LIMIT 1"
 end
 
 def counts_number_of_bears_with_goofy_temperaments
